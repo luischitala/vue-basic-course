@@ -12,13 +12,19 @@
     <div id="app">{{text}}</div>
     
     <script>
+        //Dentro de las dos llaves podemos usar expresiones válidas de javascript o vue
+        //Vista, modelo, estado
+
         //Retorna una app, el model vue MVVM
         const vm = Vue.createApp({
             data(){
                 return {
-                    text: "Hola Vue"
+                    text: "<p>Hola Vue</p>"
                 };
-            }
+            },
+            //Para no usar las dobles llaves
+            //Considerar las directivas v-once v-text v-html
+            template: `<div v-once v-html="text"></div>`
         }).mount("#app");
         console.log(vm);
     </script>
