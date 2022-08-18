@@ -9,7 +9,9 @@
 <body style="background-color: grey;">
 
     <script src="https://unpkg.com/vue@3"></script>
-    <div id="app">{{text}}</div>
+    <div id="app">
+       
+    </div>
     
     <script>
         //Dentro de las dos llaves podemos usar expresiones válidas de javascript o vue
@@ -19,12 +21,17 @@
         const vm = Vue.createApp({
             data(){
                 return {
-                    text: "<p>Hola Vue</p>"
+                    attr: "src",
+                    img:"https://source.unsplash.com/random"
+                    //text: "<p>Hola Vue</p>"
                 };
             },
+            template: `<img v-bind:[attr]="img" v-bind:alt="img">`
+            //template: `<img v-bind:src="img" v-bind:alt="img">`
+
             //Para no usar las dobles llaves
             //Considerar las directivas v-once v-text v-html
-            template: `<div v-once v-html="text"></div>`
+            //template: `<div v-once v-html="text"></div>`
         }).mount("#app");
         console.log(vm);
     </script>
