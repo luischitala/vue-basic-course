@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey;">
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <div id="app">
+       
+    </div>
+   
+    <script>
+
+        const vm = Vue.createApp({
+            data(){
+                return {
+                    evt: "submit",
+                    counter: 0
+                };
+            },
+            methods: {
+                //Reactive behaviour
+                // Para recibir el objeto
+                submit(){
+                    this.counter++;
+                }
+            },
+            //Directiva para escuchar eventos v-on:click v-on:keyup :submit "Cancelar la forma en que trabaja por defecto"
+            template: `<form v-on:[evt].prevent="submit" action="">
+                        <button >{{counter}}</button>
+                        </form>`,
+        }).mount("#app");
+        console.log(vm);
+    </script>
+</body>
+</html>
