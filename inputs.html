@@ -6,7 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body style="background-color: grey;">
+    <script src="https://unpkg.com/vue@3"></script>
+    <div id="app">
+       
+    </div>
+   
+    <script>
+        const vm = Vue.createApp({
+            data(){
+                return {
+                    text: "Hola Vue",
+                };
+            },
+
+            // Reactive
+            // v-on:input, v-on:change
+            // v-on @ v-value :, v-model sincroniza con el modelo 
+            // v-model sustituye ambos códigos anteriormente mencionados
+            template: `
+            <p>{{text}}</p>
+            <input type="text" 
+                   v-model="text"
+                   
+            />
+            `,
+        }).mount("#app");
+    </script>
 </body>
 </html>
