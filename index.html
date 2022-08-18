@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=script, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey;">
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <div id="app">{{text}}</div>
+    
+    <script>
+        //Retorna una app, el model vue MVVM
+        const vm = Vue.createApp({
+            data(){
+                return {
+                    text: "Hola Vue"
+                };
+            }
+        }).mount("#app");
+        console.log(vm);
+    </script>
+</body>
+</html>
