@@ -16,7 +16,8 @@
         const vm = Vue.createApp({
             data(){
                 return {
-                    text:"Puerta cerrada",
+                    text:"Accede a tu cuenta",
+                    username:"",
                     open: false,
                    
                 };
@@ -26,9 +27,9 @@
                 //El primer parámetro es la variable que se le acaba de asignar
                 open(value){
                     if (value){
-                        this.text = "Puerta Abierta";
+                        this.text = "Cierra sesión";
                     }else{
-                        this.text = "Puerta Cerrada";
+                        this.text = "Accede a tu cuenta";
                     }
                 }
             },
@@ -43,7 +44,16 @@
             template: `
             <div class="container" :class="{'open':open, 'closed':!open}">
                 <div>{{text}}</div>
-                <button @click="open = !open">{{label}}</button>
+                <div v-if="open">
+                    <p>Hola, {{username}}</p>    
+                </div>
+                <div v-else>
+                    <input type="text" v-model="username"> 
+                </div>
+                <button @click="open = !open">
+                    <div v-if="!open">Acceder</div>
+                    <div v-else>Salir</div>
+                </button>
             </div>
             `,
         }).mount("#app");
